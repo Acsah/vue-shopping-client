@@ -61,8 +61,25 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: "Nav",
+  data() {
+    return {
+      
+    }
+  },
+  computed:{
+    // 第一种方式
+    // categotyList(){
+    //   return this.$store.state.home.categotyList;
+    // },
+    // ...mapState(['categotyList']),  
+    // 第二种方式
+    ...mapState({
+       categotyList:state=>state.home.categotyList //函数接收总状态，返回值作为计算属性值
+    })
+  }
 };
 </script>
 
