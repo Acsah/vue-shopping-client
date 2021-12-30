@@ -4,19 +4,32 @@
       <!-- 轮播图 -->
       <div class="swiper-container fl">
         <!-- 轮播图 -->
-        <swiper class="swiper" :options="swiperOptions">
-          <swiper-slide
-            class="swiper-slide"
-            v-for="banner in banners"
-            :key="banner.id"
-          >
-            <img :src="banner.imageUrl" alt="" style="width:100%"/>
-          </swiper-slide>
-
-          <div class="swiper-pagination" slot="pagination"></div>
-          <div class="swiper-button-prev" slot="button-prev"></div>
-          <div class="swiper-button-next" slot="button-next"></div>
-        </swiper>
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="#">
+              <img src="./images/focus1.jpg" alt="" />
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="#">
+              <img src="./images/focus2.jpg" alt="" />
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="#">
+              <img src="./images/focus1.jpg" alt="" />
+            </a>
+          </li>
+        </ul>
+        <!-- 分页 -->
+        <ol class="swiper-pagination">
+          <li></li>
+          <li class="current"></li>
+          <li></li>
+          <li></li>
+        </ol>
+        <!-- 左右按钮 -->
+        <a href="#" class="arrow-l"> &gt; </a> <a href="#" class="arrow-r">  </a>
       </div>
       <!-- 右侧 新闻快报 -->
       <div class="newsflash fr">
@@ -123,38 +136,22 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import {mapState} from 'vuex'
 export default {
   name: "MainContainer",
   data() {
     return {
-      swiperOptions: {
-        // direction: "horizontal", // 水平切换选项
-        loop: true, // 循环模式选项
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: true,
-        },
-
-        // 如果需要分页器
-        pagination: {
-          el: ".swiper-pagination",
-        },
-
-        // 如果需要前进后退按钮
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      },
-    };
+      
+    }
   },
-  computed: {
+  computed:{
     ...mapState({
-      banners: (state) => state.home.banners,
-    }),
+      banners:state=>state.home.banners
+    })
   },
-  mounted() {},
+  mounted(){
+
+  }
 };
 </script>
 
@@ -174,7 +171,7 @@ export default {
       height: 455px;
       // background-color: purple;
 
-      .swiper-wrapper {
+      // .swiper-wrapper {
         .swiper-slide {
           position: absolute;
 
@@ -182,28 +179,50 @@ export default {
             width: 100%;
           }
         }
-      }
+      // }
 
       // 分页
-      // .swiper-pagination {
-      //   position: absolute;
-      //   bottom: 10px;
-      //   left: 50px;
+      .swiper-pagination {
+        position: absolute;
+        bottom: 10px;
+        left: 50px;
 
-      //   li {
-      //     float: left;
-      //     width: 8px;
-      //     height: 8px;
-      //     border: 2px solid rgba(255, 255, 255, 0.5);
-      //     margin: 0 3px;
-      //     border-radius: 50%;
-      //     cursor: pointer;
+        li {
+          float: left;
+          width: 8px;
+          height: 8px;
+          /*background-color: #fff;*/
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          margin: 0 3px;
+          border-radius: 50%;
+          /*鼠标经过显示小手*/
+          cursor: pointer;
 
-      //     &.current {
-      //       background-color: #fff;
-      //     }
-      //   }
-      // }
+          &.current {
+            background-color: #fff;
+          }
+        }
+      }
+
+      // 左按钮
+      .arrow-l,
+      .arrow-r {
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 24px;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.3);
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        font-family: "icomoon";
+        font-size: 18px;
+      }
+
+      .arrow-r {
+        right: 0;
+      }
     }
 
     // 京东快报

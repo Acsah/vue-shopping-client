@@ -4,11 +4,18 @@ import router from './router'
 import store from './store'
 // 引入公共组件
 import Nav from '@/components/Nav'
+import Pagination from '@/components/Pagination'
+
+import './plugins/swiper' //加载swiper的配置
+import  './mock/mockServer'
+
+
 // 浏览器控制台不显示 非生产环境打包的提示
 Vue.config.productionTip = false
 
 // 注册全局组件
 Vue.component(Nav.name,Nav)
+Vue.component(Pagination.name,Pagination)
 
 new Vue({
   router,

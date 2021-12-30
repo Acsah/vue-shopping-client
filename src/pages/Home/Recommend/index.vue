@@ -7,26 +7,12 @@
     </div>
     <div class="recommend-bd fl">
       <ul>
-        <li>
+        <li v-for="item in recommends" :key="item.id">
           <a href="#">
-            <img src="./images/today01.jpg" alt="" />
+            <img :src="item.imageUrl" alt="" />
           </a>
         </li>
-        <li>
-          <a href="#">
-            <img src="./images/today02.png" alt="" />
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="./images/today03.png" alt="" />
-          </a>
-        </li>
-        <li class="last">
-          <a href="#">
-            <img src="./images/today04.png" alt="" />
-          </a>
-        </li>
+        
       </ul>
     </div>
   </div>
@@ -35,6 +21,12 @@
 <script>
 export default {
   name: "Recommend",
+  props:{
+    recommends:Array
+  },
+  mounted(){
+    console.log(this.recommends);
+  }
 };
 </script>
 
