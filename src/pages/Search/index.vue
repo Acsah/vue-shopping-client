@@ -68,9 +68,37 @@
     <!--(4)列表 -->
     <div class="main clearfix">
       <div class="goods-list clearfix">
+        <!-- <div class="goods-item" v-for="item in goodsList" :key="item.id">
+          <div class="goods-img">
+            <router-link :to="'/detail/'+item.id">
+              <img :src="item.defaultImg" alt="" />
+            </router-link>
+          </div>
+          <div class="goods-price">
+            <strong>
+              <em>¥</em>
+              <i>{{item.price}}</i>
+            </strong>
+          </div>
+          <div class="goods-detail">
+            <router-link :to="'/detail/'+item.id">
+              {{item.title}}
+            </router-link>
+          </div>
+          <div class="goods-commit">
+            <i>已有<span>700</span>人评价</i>
+          </div>
+          <div class="goods-btns">
+            <a class="addCart" href="#">加入购物车</a>
+            <a class="attention" href="#">搜藏</a>
+          </div>
+        </div> -->
+
         <div class="goods-item">
           <div class="goods-img">
-            <img src="./images/mobile01.png" alt="" />
+            <router-link :to="'/detail/'+'111'">
+              <img src="./images/mobile01.png" alt="" />
+            </router-link>
           </div>
           <div class="goods-price">
             <strong>
@@ -79,7 +107,9 @@
             </strong>
           </div>
           <div class="goods-detail">
-            Apple苹果iPhone 13 Apple苹果iPhone 13Apple苹果iPhone 13苹果
+            <router-link :to="'/detail/'+'111'">
+              Apple苹果iPhone 13 Apple苹果iPhone 13Apple苹果iPhone 13苹果
+            </router-link>
           </div>
           <div class="goods-commit">
             <i>已有<span>700</span>人评价</i>

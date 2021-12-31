@@ -2,10 +2,13 @@
 import home from './home'
 import user from './user'
 import search from './search'
+import cart from './cart'
+
 
 // 向外暴露所有模块
 export default {
     home,
     user,
-    search
+    search,
+    cart
 }

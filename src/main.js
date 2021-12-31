@@ -18,6 +18,10 @@ Vue.component(Nav.name,Nav)
 Vue.component(Pagination.name,Pagination)
 
 new Vue({
+  beforeCreate(){
+    // 将当前vm作为总线对象挂载到Vue原型对象上
+    Vue.prototype.$bus=this
+  },
   router,
   store,
   render: h => h(App)
