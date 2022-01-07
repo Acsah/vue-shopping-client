@@ -36,9 +36,9 @@ export default {
     };
   },
   beforeMount() {
-    this.goodsNum = this.$route.query.goodsNum;
-    console.log(this.goodsNum);
-    this.goodsInfo = JSON.parse(sessionStorage.getItem("GOODSINFO_KEY"));
+    // this.goodsNum = this.$route.query.goodsNum;
+    // console.log(this.goodsNum);
+    // this.goodsInfo = JSON.parse(sessionStorage.getItem("GOODSINFO_KEY"));
   },
 };
 </script>

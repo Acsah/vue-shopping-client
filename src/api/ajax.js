@@ -8,6 +8,9 @@ import Axios from 'axios'
 import Ngprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 
+import store from '@/store'
+
+
 // 1、配置基础路径和超时时间
 const service = Axios.create({
     // 前面为什么不加http://localhost:3000/ 
@@ -21,7 +24,10 @@ service.interceptors.request.use(config => {
     // 显示进度条
     Ngprogress.start();
     // 添加统一请求头
-
+    let userTempId = store.state.user.userTempId
+    if (userTempId) {
+        config.headers.userTempId = userTempId;
+    }
     return config;
 })
 

@@ -1,10 +1,17 @@
-import { reqAddOrUpdateCart } from "@/api";
+import { reqAddOrUpdateCart,reqCartList } from "@/api";
 
 const state = {
     goodsDetail: {},//商品详情
+    cartList:[]
 
 }
 const mutations = {
+    /*
+        接收商品详情信息
+        */
+    RECEIVE_CART_LIST(state, cartList) {
+        state.cartList = cartList
+    },
 
 }
 const actions = {
@@ -21,8 +28,8 @@ const actions = {
         // }else{
         //     return 'failed'
         // }
-        res={
-            code:200
+        res = {
+            code: 200
         }
         /** 正确写法，对失败情况创建失败的Promise */
         if (res.code === 200) {
@@ -30,7 +37,17 @@ const actions = {
         } else {
             return new Promise.reject(new Error('failed'))
         }
-    }
+    },
+    /*
+  获取指定skuid的商品信息的异步action
+  */
+    async getCartList({ commit }) {
+        const result = await reqCartList()
+        if (result.code === 200) {
+            const cartList = result.data
+            commit('RECEIVE_CART_LIST', cartList)
+        }
+    },
 }
 const getters = {
 

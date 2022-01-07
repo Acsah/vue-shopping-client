@@ -46,7 +46,12 @@
       <!-- search -->
       <div class="search">
         <!-- <input type="text" class="txtSearch fl" value="请输入搜索内容...." /> -->
-        <input type="text" class="txtSearch fl" placeholder="请输入搜索内容" v-model="keyword">
+        <input
+          type="text"
+          class="txtSearch fl"
+          placeholder="请输入搜索内容"
+          v-model="keyword"
+        />
         <button class="btnSearch fl" @click="toSearch">搜索</button>
         <!-- hotwrods -->
         <div class="hotwrods">
@@ -61,8 +66,10 @@
       </div>
       <!-- cart -->
       <div class="shopcart">
-        <i class="cart"> </i>我的购物车 <i class="arrow">  </i>
-        <i class="count">80</i>
+        <router-link to="/shopcart">
+          <i class="cart"> </i>我的购物车 <i class="arrow">  </i>
+          <i class="count">80</i>
+        </router-link>
       </div>
     </div>
     <!-- header end -->
@@ -84,14 +91,14 @@ export default {
       // this.$router.push(`/search/${this.keyword}`);
       // 第二种写法
       this.$router.push({
-        name:'search',
-        params:{
-          keyword:this.keyword
+        name: "search",
+        params: {
+          keyword: this.keyword,
         },
-        query:{
-          keyword2:this.keyword.toUpperCase()
-        }
-      })
+        query: {
+          keyword2: this.keyword.toUpperCase(),
+        },
+      });
     },
   },
 };
